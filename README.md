@@ -80,7 +80,7 @@ $env:DB_PORT="5432"
 
 #### Opción B: Usando Docker
 ```bash
-docker run --name postgres-inventory -e POSTGRES_PASSWORD=password -e POSTGRES_DB=inventory_db -p 5432:5432 -d postgres:13
+docker run --name postgres-inventory -e POSTGRES_PASSWORD=InventoryUni2025! -e POSTGRES_DB=inventory_db -p 5432:5432 -d postgres:13
 ```
 
 ### 4. Ejecutar la aplicación
@@ -146,7 +146,7 @@ El proyecto utiliza las siguientes variables de entorno para la configuración d
 | Variable | Valor por defecto | Descripción |
 |----------|-------------------|-------------|
 | `DB_USER` | `postgres` | Usuario de PostgreSQL |
-| `DB_PASSWORD` | `password` | Contraseña de PostgreSQL |
+| `DB_PASSWORD` | `InventoryUni2025!` | Contraseña de PostgreSQL |
 | `DB_NAME` | `inventory_db` | Nombre de la base de datos |
 | `DB_HOST` | `localhost` | Host del servidor PostgreSQL |
 | `DB_PORT` | `5432` | Puerto de PostgreSQL |
@@ -154,9 +154,37 @@ El proyecto utiliza las siguientes variables de entorno para la configuración d
 
 ### Configuración de variables en Windows PowerShell:
 ```powershell
-$env:DB_USER="tu_usuario"
-$env:DB_PASSWORD="tu_contraseña"
+$env:DB_USER="postgres"
+$env:DB_PASSWORD="InventoryUni2025!"
 $env:DB_NAME="inventory_db"
+```
+
+### Configuración para EC2 Ubuntu:
+```bash
+# Instalar PostgreSQL
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+
+# Configurar PostgreSQL
+sudo -u postgres psql
+CREATE DATABASE inventory_db;
+ALTER USER postgres PASSWORD 'InventoryUni2025!';
+\q
+
+# Configurar variables de entorno
+export DB_USER="postgres"
+export DB_PASSWORD="InventoryUni2025!"
+export DB_NAME="inventory_db"
+export DB_HOST="localhost"
+export DB_PORT="5432"
+
+# Para puerto 80 (requiere sudo)
+export PORT="80"
+sudo npm start
+
+# O usar puerto 3000 (sin sudo)
+export PORT="3000"
+npm start
 ```
 
 ## 🔌 API Endpoints
