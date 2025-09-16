@@ -3,12 +3,13 @@
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12%2B-blue.svg)](https://www.postgresql.org/)
 
 ## 📖 Descripción
 
 **Inventory Manager PWA** es una aplicación web progresiva desarrollada para la gestión eficiente de inventarios. La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre productos de inventario de manera intuitiva y con capacidades offline.
 
-Este proyecto fue desarrollado como parte de un trabajo universitario para demostrar el uso de tecnologías web modernas y patrones de desarrollo de aplicaciones progresivas.
+Este proyecto fue desarrollado como parte de un trabajo universitario para demostrar el uso de tecnologías web modernas y patrones de desarrollo de aplicaciones progresivas, con una arquitectura robusta que incluye PostgreSQL como base de datos.
 
 ## ✨ Características
 
@@ -20,7 +21,8 @@ Este proyecto fue desarrollado como parte de un trabajo universitario para demos
 - 📊 **Gestión de categorías**: Organización de productos por categorías
 - 🔍 **Datos de ejemplo**: Productos precargados para pruebas
 
-## 🛠️ Tecnologías Utilizadas
+
+## �🛠️ Tecnologías Utilizadas
 
 ### Frontend
 - **React 18**: Biblioteca de JavaScript para construir interfaces de usuario
@@ -51,8 +53,8 @@ Antes de ejecutar este proyecto, asegúrate de tener instalado:
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/josecastineiras/inventory.git
-cd inventory
+git clone https://github.com/nicopetcoff/Inventory.git
+cd Inventory
 ```
 
 ### 2. Instalar dependencias
@@ -213,45 +215,15 @@ La aplicación expone los siguientes endpoints REST:
    - En sistemas Unix/Linux, el puerto 80 requiere privilegios de administrador
    - Ejecuta con `sudo npm start` o usa un puerto diferente
 
-## 🤝 Contribución
+### Comandos útiles para PostgreSQL:
 
-Este es un proyecto universitario, pero las contribuciones son bienvenidas:
+```powershell
+# Verificar si PostgreSQL está ejecutándose
+Get-Service postgresql*
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+# Conectar a PostgreSQL desde línea de comandos
+psql -U postgres -d inventory_db
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia ISC. Ver el archivo [LICENSE](LICENSE) para más detalles.
-
-## 👥 Autor
-
-- **José Castiñeiras** - [@josecastineiras](https://github.com/josecastineiras)
-
-## 🎯 Objetivos Académicos
-
-Este proyecto fue desarrollado para demostrar:
-
-- Implementación de aplicaciones web progresivas (PWA)
-- Desarrollo de APIs RESTful con Node.js y Express
-- Uso de bases de datos PostgreSQL en aplicaciones web
-- Diseño de interfaces modernas con React y Tailwind CSS
-- Aplicación de patrones de desarrollo web modernos
-- Gestión de proyectos con Git y GitHub
-
-## 🔮 Futuras Mejoras
-
-- [ ] Implementar autenticación de usuarios
-- [ ] Agregar funcionalidad offline completa
-- [ ] Incluir reportes y estadísticas
-- [ ] Implementar búsqueda avanzada
-- [ ] Agregar exportación de datos
-- [ ] Implementar notificaciones push
-- [ ] Añadir pruebas unitarias e integración
-
----
-
-**Nota**: Este proyecto es parte de un trabajo universitario y tiene fines educativos.
+# Crear la base de datos manualmente
+createdb -U postgres inventory_db
+```
